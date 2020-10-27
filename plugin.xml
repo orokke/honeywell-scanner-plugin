@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    UNLESS OTHERWISE AGREED TO IN A SIGNED WRITING BY HONEYWELL INTERNATIONAL INC
+    ("HONEYWELL") AND THE USER OF THIS CODE, THIS CODE AND INFORMATION IS PROVIDED
+    "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED, INCLUDING
+    BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS
+    FOR A PARTICULAR PURPOSE.
+
+    COPYRIGHT (C) 2016 HONEYWELL INTERNATIONAL INC.
+
+    THIS SOFTWARE IS PROTECTED BY COPYRIGHT LAWS OF THE UNITED STATES OF
+    AMERICA AND OF FOREIGN COUNTRIES. THIS SOFTWARE IS FURNISHED UNDER A
+    LICENSE AND/OR A NONDISCLOSURE AGREEMENT AND MAY BE USED IN ACCORDANCE
+    WITH THE TERMS OF THOSE AGREEMENTS. UNAUTHORIZED REPRODUCTION,  DUPLICATION
+    OR DISTRIBUTION OF THIS SOFTWARE, OR ANY PORTION OF IT  WILL BE PROSECUTED
+    TO THE MAXIMUM EXTENT POSSIBLE UNDER THE LAW.
+-->
+
+<!--
+    UNSUPPORTED SAMPLE CODE that implements a Codova plugin for reading barcodes
+    with the Honeywell Data Collection SDK for Android
+-->
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="BarcodeReaderPlugin"
+    version="1.0.0">
+    
+    <name>BarcodeReaderPlugin</name>
+    <author>Honeywell International Inc.</author>
+    <description>Plugin for barcode reading with Honeywell Data Collection SDK for Android</description>
+    <keywords>honeywell,barcode,reader,scanner</keywords>
+
+    <js-module src="www/BarcodeReaderPlugin.js" name="BarcodeReaderPlugin">
+        <clobbers target="BarcodeReaderPlugin" />
+    </js-module>
+
+    <!-- Android -->
+    <platform name="android">
+    
+    	<config-file target="AndroidManifest.xml" parent="/*">
+            <!-- Permission needed to access Data Collection service on Honeywell device -->
+            <uses-permission android:name="com.honeywell.decode.permission.DECODE" />
+        </config-file>
+                    
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="BarcodeReaderPlugin" >
+                <param name="android-package" value="BarcodeReaderPlugin"/>
+            </feature>
+        </config-file>
+        
+        <source-file src="src/android/BarcodeReaderPlugin.java" target-dir="src/" />
+        <source-file src="src/android/libs/DataCollection.jar" target-dir="libs/" />
+        
+    </platform>
+
+</plugin>
