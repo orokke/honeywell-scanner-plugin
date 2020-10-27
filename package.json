@@ -1,0 +1,25 @@
+{
+  "name": "honeywell-scanner-plugin",
+  "version": "1.0.0",
+  "description": "honeywell-scanner-plugin",
+  "cordova": {
+    "id": "honeywell-scanner-plugin",
+    "platforms": [
+      "android"
+    ]
+  },
+  "keywords": [
+    "honeywell-scanner-plugin"
+  ],
+  "author": "orokke",
+  "engines": {
+    "cordovaDependencies": {
+      "3.0.0": {
+        "cordova-android": ">=6.3.0"
+      },
+      "5.0.0": {
+        "cordova": ">100"
+      }
+    }
+  }
+}
